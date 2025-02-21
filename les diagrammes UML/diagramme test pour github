@@ -1,0 +1,4 @@
+etudiant -> systeme : Postuler à une offre
+systeme -> entreprise : Envoyer candidature
+entreprise -> systeme : Confirmer réception candidature
+systeme -> etudiant : Confirmation de candidature envoyée
