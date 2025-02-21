@@ -1,0 +1,57 @@
+@startuml
+actor "Étudiant" as etudiant
+actor "Entreprise" as entreprise
+actor "Enseignant" as enseignant
+participant "Système UnivStage" as systeme
+
+== Connexion des utilisateurs ==
+etudiant -> systeme : Se connecter
+systeme -> etudiant : Vérification des identifiants
+systeme -> etudiant : Accès autorisé/refusé
+
+entreprise -> systeme : Se connecter
+systeme -> entreprise : Vérification des identifiants
+systeme -> entreprise : Accès autorisé/refusé
+
+enseignant -> systeme : Se connecter
+systeme -> enseignant : Vérification des identifiants
+systeme -> enseignant : Accès autorisé/refusé
+
+== Création de profil ==
+etudiant -> systeme : Créer un profil
+systeme -> etudiant : Confirmer création de profil
+
+== Gestion des Offres de Stage ==
+entreprise -> systeme : Publier une offre de stage
+systeme -> entreprise : Confirmer publication
+
+etudiant -> systeme : Consulter les offres
+systeme -> etudiant : Affichage des offres disponibles
+
+etudiant -> systeme : Postuler à une offre
+systeme -> entreprise : Envoyer candidature
+entreprise -> systeme : Confirmer réception candidature
+systeme -> etudiant : Confirmation de candidature envoyée
+
+== Validation des Rapports de Stage ==
+etudiant -> systeme : Soumettre un rapport de stage
+systeme -> enseignant : Transmettre rapport
+enseignant -> systeme : Valider ou refuser rapport
+systeme -> etudiant : Notification de validation/refus
+
+== Téléchargement des Rapports ==
+etudiant -> systeme : Télécharger son rapport validé
+systeme -> etudiant : Fournir le fichier du rapport
+
+== Génération des Conventions ==
+etudiant -> systeme : Demander une convention de stage
+systeme -> systeme : Générer un fichier PDF
+systeme -> etudiant : Télécharger la convention PDF
+
+== Messagerie Interne ==
+etudiant -> systeme : Envoyer message à entreprise
+systeme -> entreprise : Transmettre message
+entreprise -> systeme : Répondre au message
+systeme -> etudiant : Transmettre réponse
+
+@enduml 

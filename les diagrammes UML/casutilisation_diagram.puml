@@ -1,0 +1,88 @@
+@startuml
+
+left to right direction
+
+actor "👨‍🎓 Étudiant" as Etudiant
+actor "🏢 Entreprise" as Entreprise
+actor "👨‍🏫 Enseignant" as Enseignant
+actor "🛠️ Administrateur" as Administrateur
+
+rectangle UnivStage {
+
+    usecase "Créer un compte" as U1
+    usecase "Modifier son profil" as U2
+    usecase "Consulter les offres de stage" as U3
+    usecase "Postuler à une offre" as U4
+    usecase "Suivre ses candidatures" as U5
+    usecase "Soumettre un rapport de stage" as U6
+    usecase "Consulter les retours sur son rapport" as U7
+
+    usecase "Envoyer/recevoir des messages" as U9
+
+    usecase "Publier une offre de stage" as U10
+    usecase "Modifier/Supprimer une offre" as U11
+    usecase "Consulter les candidatures reçues" as U12
+    usecase "Accepter ou refuser une candidature" as U13
+    usecase "Consulter les profils des candidats" as U14
+
+    usecase "Suivre et valider les rapports de stage" as U15
+    usecase "Télécharger un rapport soumis" as U16
+
+
+
+
+    usecase "Valider/supprimer des comptes" as U20
+    usecase "Gérer les offres de stage" as U21
+    usecase "Gérer la messagerie interne" as U22
+
+    usecase "Accéder aux statistiques" as U24
+
+    usecase "Génération automatique des conventions PDF" as U25
+    usecase "Système de notifications" as U26
+}
+
+Etudiant -- U1
+Etudiant -- U2
+Etudiant -- U3
+Etudiant -- U4
+Etudiant -- U5
+Etudiant -- U6
+Etudiant -- U7
+
+Etudiant -- U9
+
+Entreprise -- U1
+Entreprise -- U10
+Entreprise -- U11
+Entreprise -- U12
+Entreprise -- U13
+Entreprise -- U14
+Entreprise -- U9
+
+Enseignant -- U1
+Enseignant -- U15
+Enseignant -- U16
+
+
+
+Enseignant -- U9
+
+Administrateur -- U20
+Administrateur -- U21
+Administrateur -- U22
+
+Administrateur -- U24
+Administrateur -- U9
+
+U13 -- U25
+U8 -- U26
+
+@enduml
+
+
+
+
+
+
+
+

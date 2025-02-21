@@ -1,0 +1,77 @@
+@startuml
+class Étudiant {
+  +id : int
+  +nom : string
+  +email : string
+  +motDePasse : string
+  +CV : string
+}
+
+class Entreprise {
+  +id : int
+  +nom : string
+  +email : string
+  +motDePasse : string
+  +secteur : string
+}
+
+class OffreStage {
+  +id : int
+  +titre : string
+  +description : string
+  +entreprise_id : int
+  +dateCreation : date
+}
+
+class Candidature {
+  +id : int
+  +étudiant_id : int
+  +offre_id : int
+  +statut : string
+  +dateCandidature : date
+}
+
+class Enseignant {
+  +id : int
+  +nom : string
+  +email : string
+  +motDePasse : string
+}
+
+class RapportStage {
+  +id : int
+  +étudiant_id : int
+  +fichier : string
+  +statut : string
+  +dateSoumission : date
+}
+
+class ConventionStage {
+  +id : int
+  +étudiant_id : int
+  +entreprise_id : int
+  +fichier : string
+  +dateCreation : date
+}
+
+class Message {
+  +id : int
+  +expediteur_id : int
+  +destinataire_id : int
+  +contenu : text
+  +dateEnvoi : date
+}
+
+Étudiant "1" -- "0..*" Candidature
+Entreprise "1" -- "0..*" OffreStage
+OffreStage "1" -- "0..*" Candidature
+Étudiant "1" -- "0..*" RapportStage
+Enseignant "1" -- "0..*" RapportStage
+Étudiant "1" -- "0..*" Message
+Entreprise "1" -- "0..*" Message
+Enseignant "1" -- "0..*" Message
+Étudiant "1" -- "1" ConventionStage
+Entreprise "1" -- "1" ConventionStage
+Enseignant "1" -- "0..*" Étudiant : "Supervise"
+@enduml
+
